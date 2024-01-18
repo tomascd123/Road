@@ -118,7 +118,7 @@ def generar_contraseña():
 
 
 # 152 Whats elements
-# duda
+# duda Solo funciona bien el nombre del elemento símbolo o nómero de protones me tira errror
 def chemist(input_file):
     elements = {}
     with open(input_file, 'r') as chemical:
