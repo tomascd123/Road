@@ -149,21 +149,23 @@ def search_by_name_symbol(elements, search_key):
 
 element = chemist('elements.txt')
 
-while True:
-    user_input = input("Enter an element symbol, name, or number of protons (blank line to exit): ")
-    if not user_input:
-        break
 
-    if user_input.isdigit():
-        protons = int(user_input)
-        names, symbols = search_protons(element, protons)
-        if names:
-            print(f"Symbol: {symbols}, Name: {names}")
+def main():
+    while True:
+        user_input = input("Enter an element symbol, name, or number of protons (blank line to exit): ")
+        if not user_input:
+            break
+
+        if user_input.isdigit():
+            protons = int(user_input)
+            names, symbols = search_protons(element, protons)
+            if names:
+                print(f"Symbol: {symbols}, Name: {names}")
+            else:
+                print("Error: No element found with the given number of protons.")
         else:
-            print("Error: No element found with the given number of protons.")
-    else:
-        protons = search_by_name_symbol(element, user_input)
-        if protons:
-            print(f"Number of protons: {protons}")
-        else:
-            print("Error: No element found with the given name or symbol.")
+            protons = search_by_name_symbol(element, user_input)
+            if protons:
+                print(f"Number of protons: {protons}")
+            else:
+                print("Error: No element found with the given name or symbol.")
