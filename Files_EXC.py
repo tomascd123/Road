@@ -1,6 +1,7 @@
 # Files exc
 import sys
 import random
+import os
 
 
 # 141 Display the head of the file
@@ -127,7 +128,7 @@ def chemist(input_file):
             proton = int(line[0].strip())
             symbol = line[1].strip()
             name = line[-1].strip()
-            elements[name] = {'symbol': {symbol}, 'protons': protons}
+            elements[name] = {'symbol': {symbol}, 'protons': proton}
         return elements
 
 
@@ -169,3 +170,41 @@ def main():
                 print(f"Number of protons: {protons}")
             else:
                 print("Error: No element found with the given name or symbol.")
+
+# 153 A Book with no e
+
+
+def dic_counter(input_file):
+    alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L',
+                'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W',
+                'X', 'Y', 'Z']
+    num_words = 0
+    letter_counter = {}
+    for letter in alphabet:
+        letter_counter[letter] = 0
+
+    with open('words.txt', 'r') as entrada:
+        for word in entrada:
+            word = word.upper().rstrip()
+        values_list = []
+        for letter in word:
+            if letter not in values_list and letter != '-':
+                values_list.append(letter)
+
+        for letter in values_list:
+            letter_counter[letter] += 1
+        num_words += 1
+
+    smallest = min(letter_counter)
+    for letter in sorted(letter_counter):
+        if smallest == letter_counter[letter]:
+            percentage = smallest / num_words * 100
+
+            return print(letter, '%.2f' % percentage), letter_counter
+
+
+archivo = 'words.txt'
+
+dic_counter(archivo)
+
+# Exercise 154: Names that Reached Number One
