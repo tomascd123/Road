@@ -173,6 +173,7 @@ def main():
 
 # 153 A Book with no e
 
+# no me actualiza bien los valores del dicccionario 
 
 def dic_counter(input_file):
     alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L',
